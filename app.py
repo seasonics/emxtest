@@ -39,6 +39,6 @@ D>>>='''
 def resume():
   return send_from_directory('static','resume.pdf')
 
-@app.route('/cover'):
+@app.route('/cover')
 def cover():
   return send_from_directory('static','emx_cover.pdf')
