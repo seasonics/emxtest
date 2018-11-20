@@ -11,8 +11,7 @@ def puzzle_solve(arr):
       if i == j:
         arr[i][j] = "="
       elif val != '-':
-        arr[-i-1][-j-1] = opp[val]
-        arr[j][i] = opp[val]
+        arr[j][i] = opp[val] 
 
   # not entirely sure how to proceed with assigning the remain carrots
   # examples given have rows of entitely < or > so I'll add a row of < or >
@@ -26,17 +25,12 @@ def puzzle_solve(arr):
         val = ''
         break
     if val:
-      new_row = [val if item !="=" else '=' for item in row]
-      break
-  arr[i] = new_row
+      arr[i] = [val if item !="=" else '=' for item in row]
 
   # apply identitiy and transative again
   for i, item in enumerate(arr):
     for j, val in enumerate(arr[i]):
-      if i == j:
-        arr[i][j] = "="
-      elif val != '-':
-        arr[-i-1][-j-1] = opp[val]
+      if val not in safe:
         arr[j][i] = opp[val]     
   return arr
 
